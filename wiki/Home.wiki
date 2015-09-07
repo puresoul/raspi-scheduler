@@ -1,0 +1,17 @@
+#summary One-sentence summary of this page.
+
+= Instalation =
+
+install raspi scheduler step by step
+
+ 1)
+ 2)
+
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages

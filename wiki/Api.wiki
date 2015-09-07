@@ -1,0 +1,25 @@
+#summary One-sentence summary of this page.
+#labels Phase-Implementation,Featured,Phase-Requirements
+
+= API accees  =
+
+
+API request example 
+
+switch off request button  
+http://hostname_or_ip/api/?button=6,0
+
+switch on request button
+http://hostname_or_ip/api/?button=6,1
+
+xml request for state
+http://hostname_or_ip/api/?xml=1
+
+http read state pin
+http://hostname_or_ip/api/?read=6
+
+xml senzor value
+http://hostname_or_ip/api/?sensor=1
+
+xml sheduller values
+http://hostname_or_ip/api/?time=1

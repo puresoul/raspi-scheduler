@@ -1,0 +1,9 @@
+#summary One-sentence summary of this page.
+#labels FAQ,Featured
+
+= FAQ =
+
+ == I have new Raspberry Pi, but not see 512 MB RAM ==
+ * See this how to unlock 512 MB RAM
+ [http://code.google.com/p/raspi-scheduler/wiki/Raspberry_Pi_unlock_to_512_RAM how to unclock 512 RAM]
+ 

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Raspi - scheduler</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="style/style.css">
+<link rel="stylesheet" href="style/jquery.lightbox-0.5.css">
+<script type="text/javascript" src="./style/jquery.js"></script>
+<script type="text/javascript" src="./style/jquery-ui.js"></script>
+<script type="text/javascript" src="./style/jquery.lightbox-0.5.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+
+$('#menu-select').change(function() {
+  window.location = $(this).val();
+});
+
+    $(function() {
+        $('.imgboxed a').lightBox();
+    });
+
+});
+</script>
+
+</head>
+<body>
+
+<div id="header">
+<div class="left logo">Raspi<span>scheduler</span></div>
+<div class="right">
+<div id="mobile-menu">
+<select class="menu-select" id="menu-select">
+<option value="/" target="iframe">Menu</option>
+<option value="/dashboard.html" target="iframe">Dashboard</option>
+<option value="/timetable.html" target="iframe">Timetable</option>
+<option value="/cyclestat.html" target="iframe">Cyclestat</option>
+</select>
+</div>
+</div>
+</div>
+
+
+<div id="sidebar">
+    <ul id="menu">
+    <li class="nosubmenu curr"><div class="arrow"></div><div class="arrow-bg"></div>
+    <a id="dashboard" href="/dashboard.html">Dashboard</a>
+    </li>
+    <li class="nosubmenu">
+    <a id="time-sheduller" href="/timetable.html">Timetable</a>
+    </li>
+    <li class="nosubmenu">
+    <a id="senzor-sheduller" href="/cyclestat.html">Cyclestat</a>
+    </li>
+    <li class="nosubmenu">
+    <a id="control" href="/control.html">Control</a>
+    </li>
+    </ul>
+</div>
+
+<div id="content">
+    <div class="boxed left">
+	<div class="content dashboard">
+	    <div class="imgboxed"></div>
+	    <iframe class="myIframe" name="iframe" width="100%" frameborder="no" scrolling="yes" onload="load()" src="/cgi-bin/uncgi/dashboard.sh"> </iframe>
+	    <div class="clear"></div>
+	</div>
+    <div class="clear"></div>
+    <div id="footer"> &copy; HomeDev</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+VAR=$(window).height()-180
+
+$('.myIframe').css('height',VAR +'px');
+
+$(document).ready(function () {
+
+$('#dashboard').mouseover(function() { $(this).animate({'marginLeft' : "+=5px"}, 100, 'linear');});
+$('#dashboard').mouseout(function() {$(this).animate({'marginLeft' : "-=5px"}, 100, 'linear'); });
+
+$('#time-sheduller').mouseover(function() { $(this).animate({'marginLeft' : "+=5px"}, 100, 'linear');});
+$('#time-sheduller').mouseout(function() {$(this).animate({'marginLeft' : "-=5px"}, 100, 'linear'); });
+
+$('#senzor-sheduller').mouseover(function() { $(this).animate({'marginLeft' : "+=5px"}, 100, 'linear');});
+$('#senzor-sheduller').mouseout(function() {$(this).animate({'marginLeft' : "-=5px"}, 100, 'linear'); });
+
+$('#control').mouseover(function() { $(this).animate({'marginLeft' : "+=5px"}, 100, 'linear');});
+$('#control').mouseout(function() {$(this).animate({'marginLeft' : "-=5px"}, 100, 'linear'); });
+
+$('#logs').mouseover(function() { $(this).animate({'marginLeft' : "+=5px"}, 100, 'linear');});
+$('#logs').mouseout(function() {$(this).animate({'marginLeft' : "-=5px"}, 100, 'linear'); });
+
+$('#alerts').mouseover(function() { $(this).animate({'marginLeft' : "+=5px"}, 100, 'linear');});
+$('#alerts').mouseout(function() {$(this).animate({'marginLeft' : "-=5px"}, 100, 'linear'); });
+});
+</script>
+
+</body>
+</html>

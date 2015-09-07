@@ -1,0 +1,56 @@
+#!/bin/bash
+
+source /var/uncgi/conf.ini
+
+sleep 10
+
+_VALUE() {
+    $SQLITE -separator " " $DB "select * from $1 order by key desc limit 0,1;"
+}
+
+_DELETE() {
+    $SQLITE $DB "delete from $1 where key<$2;"
+    $SQLITE $DB "update $1 set key=1;"
+}
+
+output_config() {
+    echo "graph_title temp_new graph"
+    for VAL in $NEWVALLIST; do
+        echo "$VAL.label $VAL"
+    done
+}
+
+output_values() {
+    for VAL in $NEWVALLIST; do
+        read ID VAR <<< "`_VALUE $VAL`"
+        printf "$VAL.value $VAR\n"
+        _DELETE $VAL $ID
+    done
+}
+
+output_usage() {
+    printf >&2 "%s - munin plugin to graph an example value\n" ${0##*/}
+    printf >&2 "Usage: %s [config]\n" ${0##*/}
+}
+
+case $# in
+    0)
+        output_values
+        ;;
+    1)
+        case $1 in
+            config)
+                output_config
+                ;;
+            *)
+                output_usage
+                exit 1
+                ;;
+        esac
+        ;;
+    *)
+        output_usage
+        exit 1
+        ;;
+esac
+

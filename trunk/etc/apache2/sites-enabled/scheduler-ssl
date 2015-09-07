@@ -1,0 +1,49 @@
+
+<VirtualHost *:443>
+	ServerAdmin support@digitalscope.cz
+
+	DocumentRoot /var/www
+	
+	#Alias /munin/ /var/cache/munin/www
+
+	ProxyPass /api http://127.0.0.1/cgi-bin/uncgi/control-send.sh
+	ProxyPassReverse /api http://127.0.0.1/cgi-bin/uncgi/control-send.sh
+
+        ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+        <Directory "/usr/lib/cgi-bin">
+                AllowOverride None
+                Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+                Order allow,deny
+                Allow from all
+        </Directory>
+
+#	ErrorLog ${APACHE_LOG_DIR}/raspi_sheduller_ssl_error.log
+
+	# Possible values include: debug, info, notice, warn, error, crit,
+	# alert, emerg.
+	LogLevel warn
+
+	<Directory "/var/www">
+	    AuthType Basic
+	    AuthName realm
+	    AuthUserFile /etc/apache2/passwd/raspi_sheduller
+	    Require user admin
+	</Directory>
+
+#
+        <Directory "/usr/lib/cgi-bin/">
+            AuthType Basic
+            AuthName realm
+            AuthUserFile /etc/apache2/passwd/raspi_sheduller
+            Require user admin
+        </Directory>
+
+
+
+
+	CustomLog ${APACHE_LOG_DIR}/raspi-sheduler-access_ssl.log combined
+
+	SSLEngine On
+	SSLCertificateFile /etc/apache2/ssl/raspisheduller.pem
+
+</VirtualHost>

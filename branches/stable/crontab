@@ -1,0 +1,1 @@
+* * * * * /usr/local/bin/backend.sh >> /var/uncgi/backend.log; if [ -f /var/tmpfs/test.db ]; then cat /var/tmpfs/test.db > /root/test.db; fi

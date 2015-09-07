@@ -1,0 +1,47 @@
+#summary One-sentence summary of this page.
+#labels NewRaspberryPi,UnlockRAM,256MBto512MB
+
+= FAQ Unlock RAM new Raspberry Pi  =
+
+ == I have new Raspberry Pi, but not see 512 MB RAM ==
+
+ * New Raspberry Pi need unlock RAM memory 
+ 
+Download new firmware
+
+{{{
+
+wget http://goo.gl/1BOfJ -O /usr/bin/rpi-update && sudo chmod +x /usr/bin/rpi-update
+}}}
+
+
+Run rpi-update
+{{{
+/usr/bin/rpi-update 
+}}}
+
+Edit /boot/config.txt and add the following line at the bottom of the file:
+
+{{{
+nano /boot/config.txt
+}}}
+
+{{{
+gpu_mem=16
+}}}
+
+Reboot Raspberry Pi
+
+{{{
+reboot
+}}}
+
+And check unlock memory
+
+{{{
+
+root@raspberry:~# free -m
+             total       used       free     shared    buffers     cached
+Mem:           485         76        408          0         12         33
+
+}}}

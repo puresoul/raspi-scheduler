@@ -1,0 +1,20 @@
+#summary One-sentence summary of this page.
+#labels Senzors
+
+= Temp and Humidity senzors =
+
+Recomended senzors DHT22 for high sensitivity
+
+connect 2 humidity and temperature senzors 
+
+DHT11
+DHT22
+
+
+= Settings =
+
+Default settings for 1 senzor DHT 22 
+
+if you connect 2 senzors setup in config /etc/sheduller/conf.ini
+
+if you connect 2 different senzors DHT11 and DHT22 setup in config file
